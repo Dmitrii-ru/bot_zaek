@@ -15,7 +15,7 @@ async def zaek_user(callback: types.CallbackQuery):
     user = create_or_update_user(telegram_id, name_telegram)
 
     await callback.message.edit_text(
-        f"{user['name_telegram']}\n"
+        f"{user.get('name_telegram','Товарищ')}\n"
         f"Количество попыток: {user['total_attempts']}\n"
         f"Количество верных попыток: {user['correct_attempts']}"
     )
